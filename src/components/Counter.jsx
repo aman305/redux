@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import React from 'react';
 import { useSelector, useDispatch, connect } from 'react-redux';
+import { counterAction } from '../store/store';
 
 const Counter = () => {
   // react-redux, with the help of useSelector automatically subscribes to redux store
@@ -10,19 +11,19 @@ const Counter = () => {
   const dispatch = useDispatch(); // return a dispatch function
 
   const incrementHandler = () => {
-    dispatch({ type: 'increment' });
+    dispatch(counterAction.increment());
   };
 
   const decrementHandler = () => {
-    dispatch({ type: 'decrement' });
+    dispatch(counterAction.decrement());
   };
 
   const increaseHandler = () => {
-    dispatch({ type: 'increase', payload: 5 });
+    dispatch(counterAction.increase(5));
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: 'toggle' });
+    dispatch(counterAction.toggleCounter());
   };
   return (
     <>
